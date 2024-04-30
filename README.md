@@ -37,7 +37,7 @@ Follow these steps to run the script:
    chmod +x system_info.sh
 2. **Run the Script:**
    ```bash
-     ./system_info.sh
+     ./sysinfo.sh
 3. **Read File**
    ```bash
      cat (file)
