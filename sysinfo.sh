@@ -1,37 +1,59 @@
 #!/bin/bash
 
-#assign output of commands to variables
-host=$(hostname)
-op_sys=$(awk -F = '{print $2}' /etc/os-release | head -n1)
-uptime=$(uptime | awk '{print $1,$3}')
-kernelv=$(uname -r)
-cpuinf=$(lscpu | head)
-fileinf=$(df -h)
-netinf=$(ip addr)
-meminf=$(free -t)
-error=$(grep -i "error" /var/log/syslog | tail -n5 )
+# assign the output of date to date variable
 date=$(date -Iseconds )
 
-#create a text file with the desired information
+get_profile()
+{    
+    hostnamectl | grep -v -E -i 'id|hardware|chasis|icon' && echo "          Uptime: $(uptime -p)"
+}
+
+file_sys()
+{
+    df -h
+}
+
+net_conf()
+{
+    ip addr
+}
+
+meminf()
+{
+    free -t 
+}
+
+cpuinf()
+{
+    lscpu | head
+}
+
+error()
+{
+    grep -i "error" /var/log/syslog | tail -n5 
+}
+
+# display information in a readable manner
+system_info(){
 echo -e "
-SYSTEM INFORMATION
+SYSTEM INFORMATION REPORT
 ----------------------------------------------------------------------------------------------------
-Hostname: $host 
-Operating System: $op_sys
-Uptime: $uptime
-Kernel Version: $kernelv
+$(get_profile)
 ----------------------------------------------------------------------------------------------------
 CPU: 
-\n$cpuinf
+\n$(cpuinf)
 ----------------------------------------------------------------------------------------------------
 Memory: 
-\n$meminf
+\n$(meminf)
 ----------------------------------------------------------------------------------------------------
 Network: 
-\n$netinf
+\n$(net_conf)
 ----------------------------------------------------------------------------------------------------
 FileSystem: 
-\n$fileinf
+\n$(file_sys)
 ----------------------------------------------------------------------------------------------------
 Recent Errors: 
-\n$error" > system_info_$date.txt
+\n$(error) "
+}
+#execute system_info function and output the contents to a timestamped textfile.
+system_info > "system_info_$date.txt"
