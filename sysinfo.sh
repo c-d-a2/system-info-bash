@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#assign out of commands to variables
+#assign output of commands to variables
 host=$(hostname)
 op_sys=$(awk -F = '{print $2}' /etc/os-release | head -n1)
 uptime=$(uptime | awk '{print $1,$3}')
