@@ -27,7 +27,7 @@ cpuinf()
 {
     lscpu | head
 }
-
+# edit if you want to query another log file
 error()
 {
     grep -i "error" /var/log/syslog | tail -n5 
