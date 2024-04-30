@@ -34,7 +34,7 @@ Follow these steps to run the script:
 
 1. **Make the script executable:**
    ```bash
-   chmod +x system_info.sh
+   chmod +x sysinfo.sh
 2. **Run the Script:**
    ```bash
      ./sysinfo.sh
