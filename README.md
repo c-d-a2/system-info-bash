@@ -18,7 +18,7 @@ The script collects the following detailed information:
 
 ## Prerequisites
 Ensure the following tools are installed and accessible on your Linux distribution:
-- `hostname`: Fetches the systems name.
+- `hostnamectl`: Fetches the systems name.
 - `awk`: Processes text data.
 - `uname`: Retrieves the kernel version with -r.
 - `lscpu`: Provides detailed CPU information.
