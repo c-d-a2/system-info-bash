@@ -1,7 +1,7 @@
 # System Information Script
 
 ## Overview
-This Bash script gathers detailed system information and outputs it into a timestamped text file. It is designed for Linux systems and utilizes a variety of system utilities to collect data about the system's hardware, operating system, and network configuration.
+This Bash script gathers detailed system information and outputs it into a timestamped text file. It is designed for Linux systems and utilizes a variety of system utilities to collect data about the system's hardware, operating system, and network configuration. I'd strongly suggest creating a cronjob to run the script a regular intervals.
 
 ## Features
 The script collects the following detailed information:
