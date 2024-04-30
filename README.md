@@ -18,9 +18,9 @@ The script collects the following detailed information:
 
 ## Prerequisites
 Ensure the following tools are installed and accessible on your Linux distribution:
-- `hostname`: Fetches the system's network name.
+- `hostname`: Fetches the systems name.
 - `awk`: Processes text data.
-- `uname`: Retrieves the kernel version.
+- `uname`: Retrieves the kernel version with -r.
 - `lscpu`: Provides detailed CPU information.
 - `df`: Reports file system disk space usage.
 - `ip`: Displays network interfaces information.
@@ -28,7 +28,7 @@ Ensure the following tools are installed and accessible on your Linux distributi
 - `grep`: Searches through text.
 
 The script might require root permissions to access all data, especially system logs like `/var/log/syslog`.
-
+If you encounter any problems, try executing the script with sudo.
 ## Usage
 Follow these steps to run the script:
 
